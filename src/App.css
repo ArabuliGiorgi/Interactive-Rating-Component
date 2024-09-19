@@ -1,0 +1,16 @@
+main{
+  width: 100%;
+  max-width: 412px;
+  padding: 0 24px;
+  background: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+  border-radius: 15px;
+  min-height: 360px;
+}
+
+@media only screen and (min-width: 450px){
+  main{
+    padding: 0 39px 0 32px;
+    min-height: 416px;
+    border-radius: 30px;
+  }
+}
