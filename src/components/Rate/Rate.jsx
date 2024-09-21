@@ -1,8 +1,10 @@
 import './Rate.css'
+import { useState } from 'react'
 import starIcon from '/images/icon-star.svg'
 
 export default function Rate({setSubmit, rate, setRate}){
     const buttons = [1,2,3,4,5];
+    const [repeat, setRepeat] = useState(false);
 
     return (
         <>
@@ -16,15 +18,22 @@ export default function Rate({setSubmit, rate, setRate}){
                 {buttons.map((item) => (
                 <button
                     key={item}
-                    onClick={() => setRate(item)}
+                    onClick={() => {
+                        if(item == rate){
+                            setRepeat(true);
+                            return setRate(null);
+                        }
+                        setRepeat(false);
+                        return setRate(item);
+                    }}
                     className='rate-btn'
                     style={{
                         backgroundColor:
-                            rate == item ? "#FC7614" : ""
+                            !repeat && rate == item ? "#FC7614" : ""
                     }}
                 >
                     <h1 style={{
-                            color: rate == item ? "white" : ""
+                            color: !repeat && rate == item ? "white" : ""
                         }}
                     >{item}</h1>
                 </button>
